@@ -62,6 +62,6 @@ async function updateUI(url){
 async function getPost(urlAPI, userInp){
     getData(urlAPI).then(function(data){
         postRequest('/postRequest', {temp: data, date: newDate, userResponse: userInp});
-        updateUI('/getData');
-    });
+    })
+    .then(updateUI('/getData'));
 }
