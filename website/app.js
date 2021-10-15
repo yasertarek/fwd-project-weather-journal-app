@@ -12,7 +12,7 @@ if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((pos)=>{
         lat = pos.coords.latitude;
         lon= pos.coords.longitude;
-        urlAPI = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+        urlAPI = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
         generateBtn.addEventListener('click', () => {
             getPost(urlAPI, zipInp.value);
         });
