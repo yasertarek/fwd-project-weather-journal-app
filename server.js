@@ -33,6 +33,7 @@ app.post('/postRequest', (req,res) => {
     console.log(projectData);
 });
 app.get('/getData', (req, res) => {
+    console.log(projectData);
     res.send(projectData);
 });
 // function getData(req, res){

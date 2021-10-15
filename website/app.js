@@ -15,6 +15,7 @@ if (navigator.geolocation) {
         lon= pos.coords.longitude;
         urlAPI = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
         generateBtn.addEventListener('click', () => {
+            console.log('test', urlAPI);
             getPost(urlAPI, `Zip Code: ${zipInp.value}<br>Feelings: ${feelings.value}`);
         });
     });
@@ -60,8 +61,10 @@ async function updateUI(url){
 }
 // Combine GET & POST together
 async function getPost(urlAPI, userInp){
-    getData(urlAPI).then(function(data){
+    getData(urlAPI).then((data) => {
         postRequest('/postRequest', {temp: data, date: newDate, userResponse: userInp});
-    })
-    .then(updateUI('/getData'));
+        
+    }).then(()=>{
+        updateUI('/getData');
+    });
 }
